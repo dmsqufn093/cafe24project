@@ -2,24 +2,29 @@
     pageEncoding="UTF-8"%>
 <%@ page import="cafe24project.SubjectVO" %>
 <%@ page import="java.util.*" %>
+<% request.setCharacterEncoding("UTF-8"); %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src = "https://code.jquery.com/jquery-3.3.1.min.js" ></script>
 <title>Insert title here</title>
 </head>
 <body>
 <h1><%= request.getParameter("id") %>님의 수강신청 페이지</h1>
 
+
 <table border="1">
-	<th colspan="6">수강신청 시간표</th>
+	<th colspan="7">수강신청 시간표</th>
 	<tr align = "center" bgcolor="skybule">
 		<td>수강코드</td>
 		<td>과목코드</td>
 		<td>과목</td>
-		<td>요일</td>
-		<td>교시</td>
-		<td>수강신청</td>
+		<td>학점</td>
+		<td>요일-교시</td>
+		<td>요일-교시</td>
+		<td>요일-교시</td>
     </tr>
    
     <%
@@ -29,13 +34,19 @@
      %> 
 	<tr>
 	    <td><%= subject.getClassCode() %></td>
+	    <td><%= subject.getSubjectCode() %></td>
 	    <td><%= subject.getSubject() %></td>
-	    <td><%= subject.getDay() %></td>
-	    <td><%= subject.getPeriod() %></td>
-	    <td><%= subject.getClassCode() %></td>
-	    <td><input type="button" class="checkBtn" value="신청"></td>
+	    <td><%= subject.getCredit() %></td>
+	    <td><%= subject.getDay01() %>-<%= subject.getPeriod01() %><input type="checkbox" class="checkBtn" value="1"></td>
+	    <td><%= subject.getDay02() %>-<%= subject.getPeriod02() %><input type="checkbox" class="checkBtn" value="2"></td>
+	    <td><%= subject.getDay03() %>-<%= subject.getPeriod03() %><input type="checkbox" class="checkBtn" value="3"></td>
+	    <!--  <td><input type="button" class="checkBtn" value="신청"></td>-->
 	</tr>
+	<div class="col-lg-12" id="ex2_Result<%= subject.getClassCode() %>" ></div> 
 	<% } %>
+	<div class="col-lg-12" id="counter" ></div> 
+	<!-- <div class="col-lg-12" id="ex2_Result1" ></div>  -->
+	
 </table>
     
     
@@ -65,7 +76,7 @@
 			<td></td>
 			<td bgcolor="#5CD1E5">전산실무</td>
 			<td></td>
-			<td></td>ß
+			<td></td>
 			<td></td>
 		</tr>
  	
@@ -132,19 +143,13 @@
 			<td></td>
 		</tr>
 
-		<tr align="center">
-			<td></td>
-			<td colspan="5" bgcolor="#5CD1E5">충북대학교 청년취업아카데미<br> 담당교수 :
-				강 재 구
-			</td>
-		</tr>
 	</table>
 
 </body>
 </html>
 <script type="text/javascript">
+var count = 0;
 $(".checkBtn").click(function(){ 
-	
 	var str = ""
 	var tdArr = new Array();	// 배열 선언
 	var checkBtn = $(this);
@@ -154,28 +159,43 @@ $(".checkBtn").click(function(){
 	var tr = checkBtn.parent().parent();
 	var td = tr.children();
 	
-	console.log("클릭한 Row의 모든 데이터 : "+tr.text());
-	
-	var no = td.eq(0).text();
-	var userid = td.eq(1).text();
-	var name = td.eq(2).text();
-	var email = td.eq(3).text();
-	
+	var classCode = td.eq(0).text();
+	var subjectCode = td.eq(1).text();
+	var subject = td.eq(2).text();
+	var credit = td.eq(3).text();
+	var day = td.eq(4).text();
+	//var period = td.eq(4).text();
 	
 	// 반복문을 이용해서 배열에 값을 담아 사용할 수 도 있다.
 	td.each(function(i){	
 		tdArr.push(td.eq(i).text());
 	});
 	
+	// 총 수강학점 계산
+    // 수강신청 카운터
+    count += Number(credit);
+    $('#counter').text(count);
+    /* if($('input:checkbox[id="checkBtn"]').is(":checked")){
+    	count += Number(credit);
+        $('#counter').text(count);
+    }else{
+    	count -= Number(credit);
+        $('#counter').text(count);
+    } */
+
+	
 	console.log("배열에 담긴 값 : "+tdArr);
 	
-	str +=	" * 클릭된 Row의 td값 = No. : <font color='red'>" + no + "</font>" +
-			", 아이디 : <font color='red'>" + userid + "</font>" +
-			", 이름 : <font color='red'>" + name + "</font>" +
-			", 이메일 : <font color='red'>" + email + "</font>";		
+	str +=	" 선택한 수강신청 = 수강코드 : <font color='red'>" + classCode + "</font>" +
+	", 과목코드 : <font color='red'>" + subjectCode + "</font>" +
+	", 과목 : <font color='red'>" + subject + "</font>" +
+	", 학점 : <font color='red'>" + credit + "</font>" +
+	", 요일-교시 : <font color='red'>" + day + "</font><br>";	
 	
-	$("#ex2_Result1").html(" * 클릭한 Row의 모든 데이터 = " + tr.text());		
-	$("#ex2_Result2").html(str);	
+	
+	//$("#ex2_Result1").html(" * 클릭한 Row의 모든 데이터 = " + tr.text());		
+	$("#ex2_Result"+classCode).html(str);	
+	
 });
 
 </script>

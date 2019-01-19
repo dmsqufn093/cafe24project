@@ -30,24 +30,40 @@ public class coursemain extends HttpServlet {
     }
 
     private void initArrayList(){
-    	subjects = new ArrayList();
-    	subjects.add(new SubjectVO(1, "JAVA",Days.Monday.toString(), "1교시"));
-    	subjects.add(new SubjectVO(2, "C++",Days.Tuesday.toString(), "2교시"));
-    	subjects.add(new SubjectVO(3, "Node.js",Days.Wednesday.toString(), "3교시"));
-    	subjects.add(new SubjectVO(4, "Python",Days.Thursday.toString(), "4교시"));
-    	subjects.add(new SubjectVO(5, "Angular.js",Days.Friday.toString(), "5교시"));
+        subjects = new ArrayList();
+        subjects.add(new SubjectVO(1, 5132,"JAVA"
+              ,Days.Monday.getKr_days(),Days.Wednesday.getKr_days(), Days.Thursday.getKr_days()
+              , "1/2교시", "6/7교시", "4/5교시"
+              , 2));
+        subjects.add(new SubjectVO(2, 2351,"C++"
+              ,Days.Tuesday.getKr_days(),Days.Wednesday.getKr_days(),Days.Friday.getKr_days()
+              , "4/5교시", "1/2교시", "4/5교시"
+              , 4));
+        subjects.add(new SubjectVO(3, 9633,"Node.js"
+              ,Days.Tuesday.getKr_days(),Days.Thursday.getKr_days(),Days.Friday.getKr_days()
+              , "7/8교시", "3/4교시", "1/2교시"
+              , 1));
+        subjects.add(new SubjectVO(4, 4613,"Python"
+              ,Days.Monday.getKr_days(),Days.Tuesday.getKr_days(),Days.Wednesday.getKr_days()
+              , "3/4교시", "1/2교시", "3/4교시"
+              , 3));
+        subjects.add(new SubjectVO(5, 7012,"Angular.js"
+              ,Days.Wednesday.getKr_days(),Days.Thursday.getKr_days(),Days.Friday.getKr_days()
+              , "4/5교시", "6/7교시", "7/8교시"
+              , 1));
+     
     }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.setContentType("text/html;charset=UTF-8");
-		System.out.println("this");
+//		request.setCharacterEncoding("UTF-8");
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html; charset=UTF-8");
 		request.setAttribute("subjects", subjects);
 		PrintWriter out = response.getWriter();
-		out.println("<h1>Hello World</h1>");
+		System.out.print(subjects.toString());
 		request.getRequestDispatcher("/Course.jsp").forward(request, response);
 	}
 
