@@ -11,7 +11,7 @@
  	<form action="Course.jsp" method="post">
         <label>아이디 : </label>
         <input name="id" type="text"><br>
-        <input type="submit" value="전송">
+        <input type="submit" value="로그인">
     </form>
 </body>
 </html>
