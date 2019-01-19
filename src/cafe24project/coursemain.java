@@ -22,6 +22,7 @@ public class coursemain extends HttpServlet {
     public coursemain() {
         super();
         // TODO Auto-generated constructor stub
+        ㅁㄴㅇㄻㅇㄻㄴㅇㄻㅇㄴㄻㄴㅇㄻㄴㅇㄹ
     }
 
 	/**
