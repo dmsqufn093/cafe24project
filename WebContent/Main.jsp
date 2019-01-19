@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>로그인 화면 </h1>
- 	<form action="Course.jsp" method="post">
+ 	<form action="coursemain" method="post">
         <label>아이디 : </label>
         <input name="id" type="text"><br>
         <input type="submit" value="로그인">

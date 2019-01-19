@@ -1,4 +1,4 @@
-package src.cafe24project;
+package cafe24project;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,6 +25,7 @@ public class coursemain extends HttpServlet {
      */
     public coursemain() {
         super();
+        initArrayList();
         // TODO Auto-generated constructor stub
     }
 
@@ -43,10 +44,11 @@ public class coursemain extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html;charset=UTF-8");
-		
+		System.out.println("this");
 		request.setAttribute("subjects", subjects);
 		PrintWriter out = response.getWriter();
 		out.println("<h1>Hello World</h1>");
+		request.getRequestDispatcher("/Course.jsp").forward(request, response);
 	}
 
 	/**
