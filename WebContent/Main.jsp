@@ -6,12 +6,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+   #title {
+      text-align: center;
+      font-family: 'Nanum Gothic', sans-serif;
+   }
+   form {
+      text-align: center;
+   }
+</style>
 </head>
 <body>
-<h1>로그인 화면 </h1>
+<h1 id="title">로그인 화면 </h1>
  	<form action="coursemain" method="post">
         <label>아이디 : </label>
-        <input name="id" type="text"><br>
+        <input name="id" type="text"><br><br>
         <input type="submit" value="로그인">
     </form>
 </body>

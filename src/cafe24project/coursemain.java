@@ -33,12 +33,12 @@ public class coursemain extends HttpServlet {
         subjects = new ArrayList();
         subjects.add(new SubjectVO(1, 5132,"JAVA"
               ,Days.Monday.getKr_days(),Days.Wednesday.getKr_days(), Days.Thursday.getKr_days()
-              , "1/2교시", "6/7교시", "4/5교시"
+              , "1/2교시", "1/2교시", "4/5교시"
               , 2));
         subjects.add(new SubjectVO(2, 2351,"C++"
               ,Days.Tuesday.getKr_days(),Days.Wednesday.getKr_days(),Days.Friday.getKr_days()
               , "4/5교시", "1/2교시", "4/5교시"
-              , 4));
+              , 3));
         subjects.add(new SubjectVO(3, 9633,"Node.js"
               ,Days.Tuesday.getKr_days(),Days.Thursday.getKr_days(),Days.Friday.getKr_days()
               , "7/8교시", "3/4교시", "1/2교시"
@@ -46,11 +46,31 @@ public class coursemain extends HttpServlet {
         subjects.add(new SubjectVO(4, 4613,"Python"
               ,Days.Monday.getKr_days(),Days.Tuesday.getKr_days(),Days.Wednesday.getKr_days()
               , "3/4교시", "1/2교시", "3/4교시"
-              , 3));
+              , 2));
         subjects.add(new SubjectVO(5, 7012,"Angular.js"
               ,Days.Wednesday.getKr_days(),Days.Thursday.getKr_days(),Days.Friday.getKr_days()
               , "4/5교시", "6/7교시", "7/8교시"
               , 1));
+        subjects.add(new SubjectVO(6, 3758,"PHP"
+                ,Days.Wednesday.getKr_days(),Days.Thursday.getKr_days(),Days.Thursday.getKr_days()
+                , "1/5교시", "6/8교시", "7/8교시"
+                , 2));
+        subjects.add(new SubjectVO(7, 2784,"ASP"
+                ,Days.Wednesday.getKr_days(),Days.Monday.getKr_days(),Days.Friday.getKr_days()
+                , "3/4교시", "1/3교시", "4/5교시"
+                , 2));
+        subjects.add(new SubjectVO(8, 3647,"자료구조론"
+                ,Days.Monday.getKr_days(),Days.Thursday.getKr_days(),Days.Tuesday.getKr_days()
+                , "4/5교시", "2/8교시", "1/7교시"
+                , 3));
+        subjects.add(new SubjectVO(9, 3434,"확률통계론"
+                ,Days.Friday.getKr_days(),Days.Wednesday.getKr_days(),Days.Monday.getKr_days()
+                , "1/3교시", "1/2교시", "5/6교시"
+                , 2));
+        subjects.add(new SubjectVO(10, 8789,"컴퓨터구조"
+                ,Days.Thursday.getKr_days(),Days.Thursday.getKr_days(),Days.Friday.getKr_days()
+                , "4/5교시", "6/7교시", "7/8교시"
+                , 1));
      
     }
 	/**
