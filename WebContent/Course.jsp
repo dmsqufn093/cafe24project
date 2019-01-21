@@ -90,7 +90,7 @@
 </table>
 
     
-<table id="scheduleTb" style="float: right">
+<table id="scheduleTb">
   <caption>
      <font size="5" face="굴림"><font color="#fe8c14">Time Table</font>
   </caption>
@@ -279,10 +279,13 @@ function itemSum(frm, selectVal){
 	} else {
 	   console.log("error");
 	}
+	var color = '#'; 
+	var letters = ['a29bfe', '74b9ff', '00cec9', 'ff7675', 'fdcb6e', 'b2bec3', 'ff7979', 'badc58', 'dff9fb'];
+	color += letters[Math.floor(Math.random() * letters.length)];
 	
 	if(checkBtn[0].checked) {
-	   $("#"+period01+"").css("background-color","red");
-	   $("#"+period02+"").css("background-color","red");
+	   $("#"+period01+"").css("background-color",color);
+	   $("#"+period02+"").css("background-color",color);
 	   $("#"+period01+"").text(subject);
 	   $("#"+period02+"").text(subject);
 	} else {
