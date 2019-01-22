@@ -224,7 +224,7 @@ function itemSum(frm, selectVal){
 			}
 	    }
 	}
-	if(chkcnt == 1){
+	if(chkcnt > 0){
 		alert("중복된 시간을 선택하셨습니다.");
 		$('input:checkbox[id=chkbox'+selectVal+']').prop('checked', false);
 		return;
