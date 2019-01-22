@@ -26,4 +26,4 @@ Backend Technologies:
 - JEE
 
 # 프로젝트 흐름도
-메일에 첨부된 PDF파일 참조 부탁드립니다.
+![shot1](https://github.com/dmsqufn093/cafe24project/blob/master/WebContent/img2019/shot1.png)
