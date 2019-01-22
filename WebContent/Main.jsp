@@ -21,7 +21,16 @@
  	<form action="coursemain" method="post">
         <label>아이디 : </label>
         <input name="id" type="text"><br><br>
-        <input type="submit" value="로그인">
+        <input type="button" value="로그인" onclick="javascript:loginBtn(this.form);">
     </form>
+<script type="text/javascript">
+function loginBtn(frm){
+	if(frm.id.value == ''){
+		alert("아이디 값을 입력해주세요.");
+		return;
+	}
+	frm.submit();
+}
+</script>
 </body>
 </html>
