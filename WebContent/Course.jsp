@@ -187,12 +187,7 @@ function itemSum(frm, selectVal){
 	var dayFirstTime = day.substring(4,5);
 	var daySecondTime = day.substring(6,7);
 
-	// 반복문을 이용해서 배열에 값을 담아 사용할 수 도 있다.
-	/* td.each(function(i){	
-		tdArr.push(td.eq(i).text());
-	}); */
-	
-	if(credit < 3){ //신청 학점이 3학점 이하일 경우
+	if(credit < 3){ //신청 학점이 3학점 미만일 경우
 		var chkcnt = 0;
 		for(var i=0; i < count; i++ ){
 		    if( frm.chkbox[i].checked == true ){
@@ -205,11 +200,9 @@ function itemSum(frm, selectVal){
 		    }
 		}
 		
-		//var chkcnt = $('input:checkbox[name=chkbox]:checked').length;
 		if(chkcnt > 1){
 			alert("1-2학점은 한 번만 선택가능합니다.");
 			$('input:checkbox[id=chkbox'+selectVal+']').prop('checked', false);
-			//$(this).prop('checked', false);
 			return;
 		}
 	}
@@ -219,7 +212,6 @@ function itemSum(frm, selectVal){
 	var orgsel = "chkbox"+selectVal;
 	for(var i=0; i < count; i++ ){
 	    if( frm.chkbox[i].checked == true && orgsel != frm.chkbox[i].id){
-	    	//var classcodes =  frm.chkbox[i].parentElement.parentElement.children[0].firstChild.textContent
 	    	var dayOfDays = frm.chkbox[i].parentElement.textContent.substring(0, 3); // 요일
 	    	var dayFirstTimes = frm.chkbox[i].parentElement.textContent.substring(4,5); //첫번째 교시
 	    	var daySecondTimes = frm.chkbox[i].parentElement.textContent.substring(6,7); //두번째 교시
@@ -235,7 +227,6 @@ function itemSum(frm, selectVal){
 	if(chkcnt == 1){
 		alert("중복된 시간을 선택하셨습니다.");
 		$('input:checkbox[id=chkbox'+selectVal+']').prop('checked', false);
-		//$(this).prop('checked', false);
 		return;
 	}
 	
@@ -257,7 +248,7 @@ function itemSum(frm, selectVal){
 	    }
 	}
 	
-	//
+	//체크 박스 선택 시 시간표에 색칠
 	var period01 = "";
 	var period02 = "";
 	
@@ -295,9 +286,6 @@ function itemSum(frm, selectVal){
 	   $("#"+period02+"").text("");
 	}
 	   
-	   
-	   
-	//$("#ex2_Result1").html(" * 클릭한 Row의 모든 데이터 = " + tr.text());		
 	$("#ex2_Result").html(str);
 }
 
@@ -310,7 +298,7 @@ function saveBtn(frm){
 		var credit = frm.chkbox[j].parentElement.parentElement.children[3].firstChild.textContent;
 		var classCode = frm.chkbox[j].parentElement.parentElement.children[0].firstChild.textContent;
 	
-		if(credit >= 3){ //신청 학점이 3학점 이하일 경우
+		if(credit >= 3){ //신청 학점이 3학점 이상일 경우
 			var chkcnt = 0;
 			for(var i=0; i < count; i++ ){
 			    if( frm.chkbox[i].checked == true ){
@@ -322,10 +310,8 @@ function saveBtn(frm){
 			    }
 			}
 			
-			//var chkcnt = $('input:checkbox[name=chkbox]:checked').length;
 			if(chkcnt < 2){
 				alert("3학점은 주 2회 신청해야 합니다.");
-				//$(this).prop('checked', false);
 				return;
 			}
 		}
@@ -358,9 +344,6 @@ function saveBtn(frm){
     frm.submit();
 
 }
-	
-
-
 </script>
 </body>
 </html>
